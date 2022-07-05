@@ -1,0 +1,16 @@
+.sidenav{
+    width: 250px;
+    height: 650px;
+    margin-left: -8px;
+    margin-top: -22px;
+    display: inline-flexbox;
+    background-color: black ;
+    color: aqua;
+}
+
+.navbar{
+    width: 1115px;
+    height: 50px;
+    display: inline-flexbox;
+    background-color: blue;
+}

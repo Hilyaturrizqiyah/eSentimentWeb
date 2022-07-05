@@ -1,0 +1,16 @@
+footer{
+    font-size: small;
+}
+
+#nav-selected{
+    content: '';
+    display: block;
+    border-bottom: 3px solid #f4623a;;
+    width: 100%;
+    margin: auto;
+}
+
+#login-button{
+    color: #fff;
+    background-color: #f4623a;
+}
