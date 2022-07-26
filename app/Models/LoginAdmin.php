@@ -10,7 +10,7 @@ use Illuminate\Notifications\Notifiable;
 class LoginAdmin extends Authenticatable
 {
     protected $table="admins";
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'user_id';
     protected $fillable = ['name', 'email', 'password']; //field tabel
     public $timestamps = false;
 }

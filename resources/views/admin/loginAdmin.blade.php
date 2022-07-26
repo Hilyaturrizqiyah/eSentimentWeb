@@ -60,7 +60,7 @@
                                     </a>
                                 </div>
                                 <div class="p-2">
-                                    <form class="form-horizontal" action="/admin/loginPost" method="Post">
+                                    <form class="form-horizontal" action="/loginPost" method="Post">
                                         {{ csrf_field() }}
                                         <div class="mb-3">
                                             <label for="email" class="form-label">Email</label>

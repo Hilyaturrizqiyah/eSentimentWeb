@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Admin\AddAdminController;
 use App\Http\Controllers\Admin\LoginController;
+use App\Http\Controllers\LandingPageController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,6 +17,8 @@ use App\Http\Controllers\Admin\LoginController;
 |
 */
 /* Landing Page */
+// Route::get('/', [LandingPageController::class, 'index']);
+Route::resource('/', App\Http\Controllers\LandingPageController::class);
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -27,11 +31,13 @@ Route::resource('welcome',AddAdminController::class);
 Route::get('login', function () {
     return view('admin.loginAdmin');
 })->middleware('guest');
-Route::post('/admin/loginPost',[LoginController::class,'login'])->name('login');
-Route::get('/admin/logout',[LoginController::class,'logout']);
+Route::post('/loginPost',[LoginController::class,'login'])->name('login');
+Route::get('/logout',[LoginController::class,'logout']);
 
 // Halaman Admin
-//Route::get('/admin/dashboard', [LoginController::class, 'dashboard'])->name('dashboard');
-Route::get('/admin/dashboard', function () {
-    return view('admin.dashboardAdmin');
-});
+Route::get('/dashboard', [LoginController::class, 'dashboard'])->name('dashboard');
+Route::resource('data-klasifikasi', App\Http\Controllers\Admin\DataTestingController::class);
+Route::resource('data-baru', App\Http\Controllers\Admin\DataBaruController::class);
+
+Route::get('/predict',[PostGuzzleController::class,'predict']);
+// Route::get('posts/store', [PostGuzzleController::class, 'store' ]);

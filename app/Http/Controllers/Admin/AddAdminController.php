@@ -38,7 +38,7 @@ class AddAdminController extends Controller
     public function store(Request $request)
     {
         $data = array(
-            'id'=>"1",
+            'user_id'=>"1",
             'name'=>"admin",
             'email'=>"admin@admin.com",
             'password'=>Crypt::encryptString("123456"),

@@ -29,10 +29,10 @@ class LoginController extends Controller
         
         if (count($data)>0) {
     		Auth::guard('admin')->LoginUsingId($data[0]['email']);
-    		return redirect('/admin/dashboard');
+    		return redirect('/dashboard');
     	}
     	else{
-    		return redirect('/admin/login')->with('Login Gagal');
+    		return redirect('/login')->with('Login Gagal');
     	}
     }
 
@@ -41,17 +41,17 @@ class LoginController extends Controller
         if (Auth::guard('admin')->check()) {
     		Auth::guard('admin')->logout();
     	}
-		return redirect('/admin/login');
+		return redirect('/login');
     }
 
 	public function dashboard()
 	{
-		$profil = DB::table('admins')->get();
+		// $profil = DB::table('admins')->get();
         // $jmlh_kelompok = DB::table('tb_kelompok')->where('desa', '>', 0)->count();
         // $jmlh_individu = DB::table('tb_anggota_individu')->where('desa', '>', 0)->count();
         return view('admin.dashboardAdmin', [
-            'profil' => $profil,
-			'admin' => \Auth::user()
+            // 'profil' => $profil,
+			// 'admin' => \Auth::user()
             // 'jmlh_kelompok' => $jmlh_kelompok,
             // 'jmlh_individu' => $jmlh_individu
         ]);
